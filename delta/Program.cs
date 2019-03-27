@@ -10,33 +10,33 @@ namespace delta
     {
         static void Main(string[] args)
         {
-            const int N = 5;
-            double[] inputs = new double[N] { 1, 4, 5, 3, 2 };
-            double[] weights = new double[N] { 0.2, 0.3, 1, 0.03, 0 };
-            int K = 1000000;
-            double step = 0.00001;
-            int k = 0;
-            double output = 0;
-            double desiredOutput = 15;
-            while (k <= K)
-            {
-                output = 0;
-                for (int i = 0; i < N; i++)
-                {
-                    output += weights[i] * inputs[i];
-                }
-
-                for (int i = 0; i < N; i++)
+            const int N = 5;                                                                    //Liczba wejść
+            double[] inputs = new double[N] { 1, 4, 5, 3, 2 };                                  //Wejscia
+            double[] weights = new double[N] { 0.2, 0.3, 1, 0.03, 0 };                          //Wagi
+            int K = 1000000;                                                                    //Liczba epok(iteracji)
+            double step = 0.00001;                                                              //Krok uczenia
+            int k = 0;                                                                          //Bieżaca iteracja
+            double output = 0;                                                                  //Wyjscie
+            double desiredOutput = 15;                                                          //Zadane wyjscie
+            while (k <= K)                                                                      //Petla wykonuje się zadaną ilość razy
+            {                                                                                   //Na początku każdej pętli zerowane jest wyjście neuronu
+                output = 0;                                                                     //
+                for (int i = 0; i < N; i++)                                                     //Wyjscie jest sumą pomnożonych par wejść i wag
+                {                                                       
+                    output += weights[i] * inputs[i];   
+                }   
+                    
+                for (int i = 0; i < N; i++)                                                     //Korekta wszystkich wag zgodnie z reguła delta
                 {
                     weights[i] = weights[i] + step * (desiredOutput - output) * inputs[i];
                 }
 
-                k++;
+                k++;                                                                            
 
             }
 
 
-            int count = 1;
+            int count = 1;                                                                      //Wypisanie wyniku uczenia
             foreach (var weight in weights)
             {
                 
