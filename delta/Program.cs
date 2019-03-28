@@ -13,11 +13,11 @@ namespace delta
             const int N = 5;                                                                    //Liczba wejść
             double[] inputs = new double[N] { 1, 4, 5, 3, 2 };                                  //Wejscia
             double[] weights = new double[N] { 0.2, 0.3, 1, 0.03, 0 };                          //Wagi
-            int K = 1000000;                                                                    //Liczba epok(iteracji)
-            double step = 0.00001;                                                              //Krok uczenia
+            int K = 10000000;                                                                    //Liczba epok(iteracji)
+            double step = 0.000001;                                                              //Krok uczenia
             int k = 0;                                                                          //Bieżaca iteracja
             double output = 0;                                                                  //Wyjscie
-            double desiredOutput = 15;                                                          //Zadane wyjscie
+            double desiredOutput = 75465;                                                          //Zadane wyjscie
             while (k <= K)                                                                      //Petla wykonuje się zadaną ilość razy
             {                                                                                   //Na początku każdej pętli zerowane jest wyjście neuronu
                 output = 0;                                                                     //
