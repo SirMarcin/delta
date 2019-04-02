@@ -10,16 +10,14 @@ namespace SingleLinearNeuronDeltaRule
     {
         static void Main(string[] args)
         {
-            TrainingPattern tablica = new TrainingPattern(10, 5);
 
+            DeltaRule deltaRule = new DeltaRule(10, 15);
 
-            Console.Write("Wejścia treningowe: ");
-            for (int i = 0; i < tablica.Inputs.GetLength(0); i++)
+            Console.Write("Wagi początkowe: ");
+            for (int i = 0; i < deltaRule.Weights.GetLength(0); i++)
             {
-                Console.Write(tablica.Inputs[i] + ", ");
+                Console.Write(deltaRule.Weights[i] + ", ");
             }
-            Console.WriteLine();
-            Console.WriteLine("Wyjście treningowe: " + tablica.DesiredOutput);
         }
     }
 }
