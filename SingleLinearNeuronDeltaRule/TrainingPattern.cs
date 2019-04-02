@@ -8,22 +8,23 @@ namespace SingleLinearNeuronDeltaRule
 {
     public class TrainingPattern
     {
-        public TrainingPattern(int ny)
+        public TrainingPattern(int nx, double desiredOutput)
         {
-            Ny = ny;
-            
-            Random randomNumber = new Random();
+            Nx = nx;
+            DesiredOutput = desiredOutput;
+            Inputs = new double[Nx];
 
-            for (int i = 0; i < Ny; i++)
+            Random randomNumber = new Random();
+            for (int i = 0; i < Nx; i++)
             {
                 Inputs[i] = randomNumber.Next(-100000, 100000);
             }
-
             DesiredOutput = randomNumber.Next(-100000, 100000);
         }
 
-        public int Ny { get; set; }
-        public double[] Inputs { get; set; }
+        public int Nx { get; set; }
         public double DesiredOutput { get; set; }
+        public double[] Inputs { get; set; }
+
     }
 }
